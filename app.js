@@ -21,3 +21,4 @@ function searchByName(){
     }
 }
 
+document.getElementById("fname_field").innerHTML = "New Name";
