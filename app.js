@@ -31,6 +31,7 @@ function searchByName(){
             document.getElementById("occupation").innerHTML = filteredPeople[0].occupation
             document.getElementById("parents").innerHTML = filteredPeople[0].parents
             document.getElementById("currentSpouse").innerHTML = filteredPeople[0].currentSpouse
+            document.getElementById("alertUnknown").innerHTML = "We found..."
     
     }else{
         document.getElementById("alertUnknown").innerHTML = "This person is not in our records. Try another name."
