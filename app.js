@@ -16,7 +16,7 @@ function searchByName(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
         //console.log(filteredPeople);
-        return filteredPeople;
+        document.getElementById("fname_field").innerHTML = filteredPeople[1];
     }else{
         console.log('Sorry, looks like there is no one with that name.');
     }
@@ -28,5 +28,4 @@ for (let i = 0; i < personInfo.length; i++){
     console.log(personInfo[i]);
 }
 
-
-document.getElementById("fname_field").innerHTML = "New Name";
+// document.getElementById("fname_field").innerHTML = personInfo[1];
