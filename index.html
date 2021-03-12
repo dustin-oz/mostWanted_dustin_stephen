@@ -19,6 +19,33 @@
     <div class="alert alert-secondary" role="alert" id="alertUnknown">
       Search for someone by their name.
     </div>
+    <!--ALERT USER IF THEY INPUT AND FOUND SOMEONE ABOVE-->
+
+    <!--SEARCH USER BY ATTRIBUTES BELOW-->
+
+    
+    <form id="attribute">
+      <label for="anIDNumber">Search by ID</label><br>
+      <input type="text" id="anIDNumber" name="anIDNumber" value="001222887">
+      <input type ="button" onclick="searchByAttribute()" value="Submit">
+      
+      <label for="anGender"> search by gender </label>
+      <input type="text" id="anGender" name="anGender" value="male or female?">
+      <input type="button" onclick="searchByAttribute()" value="Submit">
+      
+      <label for="anDOB"> Search by DOB: M/D/YYYY</label>
+      <input type="text" id="anDOB" name="anDOB" value="M/D/YYYY">
+      <input type="button" onclick="searchByAttribute()" value="Submit">
+    </form>
+    
+    
+
+
+
+
+
+
+    <!-- SEARCH USER BY ATTRIBUTES ABOVE-->
     
       
     <table id="theTable">
@@ -47,11 +74,23 @@
         <td id="occupation">Racecar Driver</td>
         <td id="parents">No Parents</td>
         <td id="currentSpouse">Single</td>
-      </tr>
-      
-      
-
+      </tr> 
     </table>
+
+    <!--TEST TABLE-->
+ 
+
+
+
+
+
+
+
+
+
+
+
+    <!--TEST TABLE-->
 
 
     <!--I put bootstrap js source code above our own source code, I think that is proper order.-->
