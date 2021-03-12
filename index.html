@@ -38,16 +38,11 @@
       <input type="button" onclick="searchByAttribute()" value="Submit">
     </form>
      -->
+
+
+    <!-- END-->
     
-
-
-
-
-
-
-    <!-- SEARCH USER BY ATTRIBUTES ABOVE-->
-    
-      
+     <!--Search user by First and Last name and put all thier information into a Table--> 
     <table id="theTable">
       <tr>
         <th>id</th>
@@ -76,22 +71,22 @@
         <td id="currentSpouse">Single</td>
       </tr> 
     </table>
-
-    <!--TEST TABLE-->
+    <!--END-->
  
-
+    <!-- self generating table to list EVERY PERSON IN RECORD ~below~-->
     <input type="button" value="Generate Table" onclick="GenerateTable()" />
     <hr />
     <div id="dvTable"></div>
+    <!--END-->
 
+    <!--self generating table to search individual by their ID-->
     <form id="attribute">
       <label for="anIDNumber">Search by ID</label><br>
       <input type="text" id="anIDNumber" name="anIDNumber" value="001222887">
       <input type ="button" onclick="searchID()" value="Submit">
       </form>
-
-
     <div id="idTable"> </div>
+   <!--END-->
 
 
 
@@ -100,8 +95,7 @@
 
 
 
-
-    <!--TEST TABLE-->
+  
 
 
     <!--I put bootstrap js source code above our own source code, I think that is proper order.-->
