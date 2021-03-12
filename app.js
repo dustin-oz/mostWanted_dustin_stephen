@@ -28,6 +28,54 @@ function searchByName(){
        
     }
 }
+
+let userInput = "Gender male Eye Color brown"
+let hiphipArray = [];
+
+let input = userInput.toLowerCase();
+
+function declareAttributes(input){
+   let attributes = input.split(" ")
+   return attributes;
+}
+
+
+function declareGender(declaredAttributesArray) {
+    for (let i = 0; i < declaredAttributesArray.length; i++) {
+       
+        if (declaredAttributesArray[i].includes("male")){
+           let xGender = people.filter(function (gender){
+               if (gender.gender == "male"){
+                   declaredAttributesArray.pop("male");
+                   return true;
+               }
+               else return false;
+
+           
+           })
+            return (xGender);
+            // This returns an array of 9 men.
+
+        }
+
+    }
+}
+
+
+
+let declaredAttributesArray = declareAttributes(input);
+let menOrWomen = declareGender(declaredAttributesArray);
+console.log(menOrWomen);
+
+   
+
+
+
+
+
+
+
+
 /* 
 function searchByAttribute(){
     const list = [];
@@ -83,29 +131,6 @@ function searchID(){
 
 // Search by ID END---
 
-// Search by two criteria
-
-
-let bSearch = "Ellen";
-let tSearch = "blue";
-
-function searchTwo(){
-    for (let i = 0; i < people.length; i++){
-        if (bSearch == people[i].id || bSearch == people[i].firstName || bSearch == people[i].lastName || bSearch == people[i].gender || bSearch == people[i].dob || bSearch == people[i].height || bSearch == people[i].weight || bSearch == people[i].eyeColor || bSearch == people[i].occupation || bSearch == people[i].parents[0] || bSearch == people[i].parents[1] || bSearch == people[i].currentSpouse && (tSearch === people[i].id || tSearch == people[i].firstName || tSearch == people[i].lastName || tSearch == people[i].gender || tSearch == people[i].dob || tSearch == people[i].height || tSearch == people[i].weight || tSearch == people[i].eyeColor || tSearch == people[i].occupation || tSearch == people[i].parents[0] || tSearch == people[i].parents[1] || tSearch == people[i].currentSpouse )){
-         
-                
-                
-          console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
-
-        }
-        else{
-            console.log("No Match")
-        }
-
-    }
-
-}
-searchTwo();
 
 
 
@@ -113,20 +138,6 @@ searchTwo();
 
 
 
-
-/* function XsearchByTwo(){
-    let i = 0;
-    let j = 0;
-    for (let i = 0; i < people.length; i++){
-        if (people[i].id == idnum && (people[i].firstName == fName || people[i].lastName == lName || people[i].gender == xxxY || people[i].dob == doB || people[i].height == height || people[i].weight == weight || people[i].eyeColor == eyes || people[i].occupation == job || people[i].parents[0] == parents || people[i].parents == parents)){
-            console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
-        }
-        
-    }
-        
-    
-}
-searchByTwo(); */
 
 
 
@@ -180,12 +191,12 @@ function spamFillTable(filteredPeople){
     document.getElementById("currentSpouse").innerHTML = filteredPeople[0].currentSpouse
 }
 
-for(let i =0; i < people.length; i++) {
+/* for(let i =0; i < people.length; i++) {
     var elements = people[i].id;
     console.log(elements);
 
 } 
-
+ */
 
 /* Working Examples 
 
@@ -253,3 +264,32 @@ for(let i =0; i < people.length; i++) {
 
 
 //   cell.innerHTML = people[i].id + " " + people[i].firstName+" "+people[i].lastName+" "+people[i].gender+" "+people[i].dob+" "+people[i].height+" "+people[i].weight+" "+people[i].eyeColor+" "+people[i].occupation+" "+people[i].parents+" "+people[i].currentSpouse
+
+
+
+/// ATTENTION: Put every function you create, but don't use, but if it's like your baby, because you worked forever on it... but realized it's not what you actually needed.... PUT THAT STUFF BELOW HERE.
+/// ATTENTION:  never used functions below.
+
+
+// Search by two criteria
+
+
+let bSearch = "userInput";
+let tSearch = "userInput";
+
+function searchTwo(){
+    for (let i = 0; i < people.length; i++){
+        if (bSearch == people[i].id || bSearch == people[i].firstName || bSearch == people[i].lastName || bSearch == people[i].gender || bSearch == people[i].dob || bSearch == people[i].height || bSearch == people[i].weight || bSearch == people[i].eyeColor || bSearch == people[i].occupation || bSearch == people[i].parents[0] || bSearch == people[i].parents[1] || bSearch == people[i].currentSpouse && (tSearch === people[i].id || tSearch == people[i].firstName || tSearch == people[i].lastName || tSearch == people[i].gender || tSearch == people[i].dob || tSearch == people[i].height || tSearch == people[i].weight || tSearch == people[i].eyeColor || tSearch == people[i].occupation || tSearch == people[i].parents[0] || tSearch == people[i].parents[1] || tSearch == people[i].currentSpouse )){
+         
+                
+                
+          console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
+
+        }
+        else{
+            console.log("No Match")
+        }
+
+    }
+
+}
