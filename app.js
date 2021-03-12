@@ -140,6 +140,9 @@ for(let i =0; i < people.length; i++) {
 
 } 
 
+
+/* Working Examples 
+
 for(let i =0; i < people.length; i++) {
     var elements = people[i].firstName;
     console.log(elements);
@@ -156,7 +159,45 @@ for(let i =0; i < people.length; i++) {
     console.log(elements);
       
 } 
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].dob;
+    console.log(elements);
 
+} 
+
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].height;
+    console.log(elements);
+    
+} 
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].weight;
+    console.log(elements);
+
+} 
+
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].eyeColor;
+    console.log(elements);
+
+} 
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].occupation;
+    console.log(elements);
+    
+} 
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].parents;
+    console.log(elements);
+
+} 
+
+for(let i =0; i < people.length; i++) {
+    var elements = people[i].currentSpouse;
+    console.log(elements);
+
+} 
+ */
 
 
 
