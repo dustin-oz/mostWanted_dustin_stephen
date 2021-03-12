@@ -81,52 +81,6 @@ function searchID(){
         idTable.appendChild(table);
 }
 
-// Search by ID END---
-
-// Search by two criteria
-
-
-let bSearch = "Ellen";
-let tSearch = "blue";
-
-function searchTwo(){
-    for (let i = 0; i < people.length; i++){
-        if (bSearch == people[i].id || bSearch == people[i].firstName || bSearch == people[i].lastName || bSearch == people[i].gender || bSearch == people[i].dob || bSearch == people[i].height || bSearch == people[i].weight || bSearch == people[i].eyeColor || bSearch == people[i].occupation || bSearch == people[i].parents[0] || bSearch == people[i].parents[1] || bSearch == people[i].currentSpouse && (tSearch === people[i].id || tSearch == people[i].firstName || tSearch == people[i].lastName || tSearch == people[i].gender || tSearch == people[i].dob || tSearch == people[i].height || tSearch == people[i].weight || tSearch == people[i].eyeColor || tSearch == people[i].occupation || tSearch == people[i].parents[0] || tSearch == people[i].parents[1] || tSearch == people[i].currentSpouse )){
-         
-                
-                
-          console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
-
-        }
-        else{
-            console.log("No Match")
-        }
-
-    }
-
-}
-searchTwo();
-
-
-
-
-
-
-
-
-/* function XsearchByTwo(){
-    let i = 0;
-    let j = 0;
-    for (let i = 0; i < people.length; i++){
-        if (people[i].id == idnum && (people[i].firstName == fName || people[i].lastName == lName || people[i].gender == xxxY || people[i].dob == doB || people[i].height == height || people[i].weight == weight || people[i].eyeColor == eyes || people[i].occupation == job || people[i].parents[0] == parents || people[i].parents == parents)){
-            console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
-        }
-        
-    }
-        
-    
-}
-searchByTwo(); */
 
 
 
@@ -137,9 +91,12 @@ searchByTwo(); */
 
     function GenerateTable() {
         //Build an array containing Customer records.
+        
+  
         //Create a HTML Table element.
         var table = document.createElement("TABLE");
         table.border = "1";
+ 
         //Get the count of columns.
         var columnCount = 1;
  
@@ -161,6 +118,16 @@ searchByTwo(); */
         dvTable.appendChild(table);
     }
 
+
+
+///  this above i'm trying to work with from this site
+//   https://www.aspsnippets.com/Articles/Create-dynamic-Table-in-HTML-at-runtime-using-JavaScript.aspx
+
+
+
+//   cell.innerHTML = people[i].id + " " + people[i].firstName+" "+people[i].lastName+" "+people[i].gender+" "+people[i].dob+" "+people[i].height+" "+people[i].weight+" "+people[i].eyeColor+" "+people[i].occupation+" "+people[i].parents+" "+people[i].currentSpouse
+
+
 let infoArray = [];
 
 /// PUT ALL FUNCTIONS BELOW SO THE CODE UP TOP LOOKS BRIEF AND ORDERLY------REDUCE CLUTTER ABOVE------
@@ -179,77 +146,3 @@ function spamFillTable(filteredPeople){
     document.getElementById("parents").innerHTML = filteredPeople[0].parents
     document.getElementById("currentSpouse").innerHTML = filteredPeople[0].currentSpouse
 }
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].id;
-    console.log(elements);
-
-} 
-
-
-/* Working Examples 
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].firstName;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].lastName;
-    console.log(elements);
-
-} 
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].gender;
-    console.log(elements);
-      
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].dob;
-    console.log(elements);
-
-} 
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].height;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].weight;
-    console.log(elements);
-
-} 
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].eyeColor;
-    console.log(elements);
-
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].occupation;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].parents;
-    console.log(elements);
-
-} 
-
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].currentSpouse;
-    console.log(elements);
-
-} 
- */
-
-
-
-///  this above i'm trying to work with from this site
-//   https://www.aspsnippets.com/Articles/Create-dynamic-Table-in-HTML-at-runtime-using-JavaScript.aspx
-
-
-
-//   cell.innerHTML = people[i].id + " " + people[i].firstName+" "+people[i].lastName+" "+people[i].gender+" "+people[i].dob+" "+people[i].height+" "+people[i].weight+" "+people[i].eyeColor+" "+people[i].occupation+" "+people[i].parents+" "+people[i].currentSpouse

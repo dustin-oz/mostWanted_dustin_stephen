@@ -10,3 +10,12 @@ table, th, td {
     overflow-x:auto;
     
   }
+
+  form {
+    padding: 20px 40px 20px 40px;
+  }
+  #fname, #lname {
+    margin-bottom: 15px;
+  }
+
+  
