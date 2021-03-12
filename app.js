@@ -84,25 +84,14 @@ function searchID(){
 // Search by ID END---
 
 // Search by two criteria
-let idnum = 313207561
-let fName = "Mattias"
-let lName = "Madden"
-let xxxY = "male"
-let doB = "2/19/1966"
-let height = 70
-let weight = 110
-let eyes = "blue"
-let job = "assistant"
-let parents = [693243224, 888201200]
 
-let bSearch = "";
+
+let bSearch = "Ellen";
 let tSearch = "blue";
 
 function searchTwo(){
     for (let i = 0; i < people.length; i++){
-        if (bSearch === people[i].id || people[i].firstName || people[i].lastName || people[i].gender || people[i].dob || people[i].height || people[i].weight || people[i].eyeColor || people[i].occupation ){
-            
-            //|| people[i].parents[0] || people[i].parents[1] || people[i].currentSpouse && tSearch === people[i].id || people[i].firstName || people[i].lastName || people[i].gender || people[i].dob || people[i].height || people[i].weight || people[i].eyeColor || people[i].occupation || people[i].parents[0] || people[i].parents[1] || people[i].currentSpouse ){
+        if (bSearch == people[i].id || bSearch == people[i].firstName || bSearch == people[i].lastName || bSearch == people[i].gender || bSearch == people[i].dob || bSearch == people[i].height || bSearch == people[i].weight || bSearch == people[i].eyeColor || bSearch == people[i].occupation || bSearch == people[i].parents[0] || bSearch == people[i].parents[1] || bSearch == people[i].currentSpouse && (tSearch === people[i].id || tSearch == people[i].firstName || tSearch == people[i].lastName || tSearch == people[i].gender || tSearch == people[i].dob || tSearch == people[i].height || tSearch == people[i].weight || tSearch == people[i].eyeColor || tSearch == people[i].occupation || tSearch == people[i].parents[0] || tSearch == people[i].parents[1] || tSearch == people[i].currentSpouse )){
          
                 
                 
