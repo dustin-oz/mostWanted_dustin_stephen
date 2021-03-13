@@ -3,196 +3,184 @@
 
 
 
-    function searchByName(){
-        // Grabbing the values from our nameForm form and inputs.
-        let firstNameInput = document.forms['nameForm']['fname'].value;
-        let lastNameInput = document.forms['nameForm']['lname'].value;
-
-        // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-        let fPeople = people.filter(function (person) {
-            if(person.firstName === firstNameInput && person.lastName === lastNameInput){
-                return true;
-            }
-            return false;
-        });
-    
-        // Rather than console logging, you need to append the filteredPeople to a table.
-        if(filteredPeople.length > 0){
-
-            spamFillTable(fPeople);
-            document.getElementById("alertUnknown").innerHTML = "We found..."
-        
-        }else{
-            document.getElementById("alertUnknown").innerHTML = "This person is not in our records. Try another name."
-
-        
-        }
-    }
-
-    let userInput = "landScaper Gender male Eye Color brown"
-    let hiphipArray = [];
-
-    let input = userInput.toLowerCase();
-
-
-    function declareAttributes(input){
-        let attributes = input.split(" ")
-        return attributes;
-    }
- 
-
-
-
-
-    function declareGender(declaredAttributesArray) {
-        for (let i = 0; i < declaredAttributesArray.length; i++) {
-        
-            if (declaredAttributesArray[i].includes("male")){
-            let yGender = people.filter(function (person){
-                if (person.gender == "male"){
-                    //declaredAttributesArray.pop("male");
-                    return true;
-                    }
-                    else return false;
-            
-            })
-                return (yGender);  // This returns an array of 9 men, if user searched men
-            }
-            if (declaredAttributesArray[i].includes("female")){
-                let xGender = people.filter(function (person){
-                    if(person.gender == "female"){
-                    // declaredAttributesArray.pop("female");
-                        return true;
-                    }
-                    else return false;
-
-                })
-                return (xGender); // this returns an array of women, if user specified women
-            }
-
-        }
-    }
-
-    function searchEyeColors(declaredAttributesArray){
-        let matchingEyes = [];
-        for (let i = 0; i < declaredAttributesArray.length; i++){
-
-            for (let j = 0; j < filteredPeople.length; j++) {
-                if (declaredAttributesArray[i] == filteredPeople[j].eyeColor){
-                    matchingEyes.push(filteredPeople[j]);
-                
-                }
-            }
-        }
-        if (matchingEyes.length < 1){
-            return filteredPeople;
-        }
-        else return matchingEyes;
-    }
-
-
-    function searchByOccupation(declaredAttributesArray){
-        let matchingJobs = [];
-        for (let i = 0; i < declaredAttributesArray.length; i++){
-
-            for (let j = 0; j < filteredPeople.length; j++)
-            if (declaredAttributesArray[i] == filteredPeople[j].occupation){
-                matchingJobs.push(filteredPeople[j]); 
-
-            }
-        }   
-        if (matchingJobs.length < 1){
-            return filteredPeople;
-        }
-        else return matchingJobs;
-            
-    }   
-
-    function searchByDOB(declaredAttributesArray){
-        let matchingDOB = [];
-        for (let i = 0; i < declaredAttributesArray.length; i++){
-
-            for(let j = 0; j < filteredPeople.length; j++)
-            if (declaredAttributesArray[i] == filteredPeople[j].dob){
-                matchingDOB.push(filteredPeople[j])
-                
-            }
-        }
-        if (matchingDOB.length < 1){
-            return filteredPeople;
-        }
-        else return matchingDOB;
-
-    }
-
-
-    let declaredAttributesArray = declareAttributes(input);
-    let filteredPeople = declareGender(declaredAttributesArray);
-    filteredPeople = searchEyeColors(declaredAttributesArray);
-    filteredPeople = searchByOccupation(declaredAttributesArray);
-    filteredPeople = searchByDOB(declaredAttributesArray);
-    console.log(filteredPeople)
-    if (filteredPeople.length == 1){
-        spamFillTable(filteredPeople)
-    }
-
-   
-
-
-
-
-
-
-
-
-/* 
-function searchByAttribute(){
-    const list = [];
+function searchByName(){
     // Grabbing the values from our nameForm form and inputs.
-    let idyNum = document.forms["attribute"]["anIDNumber"].value;
-    let DOB = document.forms["attribute"]["anDOB"].value;
-    let aGender = document.forms["attribute"]["anGender"].value;
-    for(let i = 0; i < people.length; i++){
-        console.log(people[i])
-        if (people[i].id == idyNum){
-            FillTable(people[i])
-            break;
+    let firstNameInput = document.forms['nameForm']['fname'].value;
+    let lastNameInput = document.forms['nameForm']['lname'].value;
+
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let fPeople = people.filter(function (person) {
+        if(person.firstName === firstNameInput && person.lastName === lastNameInput){
+            return true;
         }
-        if (people[i].dob == DOB){
-            FillTable(people[i])
-            break;
+        return false;
+    });
+
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+
+        spamFillTable(fPeople);
+        document.getElementById("alertUnknown").innerHTML = "We found..."
+    
+    }else{
+        document.getElementById("alertUnknown").innerHTML = "This person is not in our records. Try another name."
+
+    
+    }
+}
+
+let userInput = "female"
+let hiphipArray = [];
+
+let filteredPeople = people;
+let input = userInput.toLowerCase();
+
+
+function declareAttributes(input){
+    let attributes = input.split(" ")
+    return attributes;
+}
+
+
+
+
+
+function searchByGender(declaredAttributesArray) {
+    let matchingGender = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++) {
+        
+        for (let j = 0; j < filteredPeople.length; j++){
+            if (declaredAttributesArray[i] == filteredPeople[j].gender){
+                matchingGender.push(filteredPeople[j]);
+            }
         }
-        if (people[i].gender == aGender || people[i] == "m" || people[i] == "f"){
-            list.push(people[i])
+    }
+    if (matchingGender.lenght < 1){
+        return filteredPeople;
+    }
+    else return matchingGender;
+    
+        
+}
+
+function searchEyeColors(declaredAttributesArray){
+    let matchingEyes = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for (let j = 0; j < filteredPeople.length; j++) {
+            if (declaredAttributesArray[i] == filteredPeople[j].eyeColor){
+                matchingEyes.push(filteredPeople[j]);
+            
+            }
+        }
+    }
+    if (matchingEyes.length < 1){
+        return filteredPeople;
+    }
+    else return matchingEyes;
+}
+
+
+function searchByOccupation(declaredAttributesArray){
+    let matchingJobs = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for (let j = 0; j < filteredPeople.length; j++)
+        if (declaredAttributesArray[i] == filteredPeople[j].occupation){
+            matchingJobs.push(filteredPeople[j]); 
+
+        }
+    }   
+    if (matchingJobs.length < 1){
+        return filteredPeople;
+    }
+    else return matchingJobs;
+        
+}   
+
+function searchByDOB(declaredAttributesArray){
+    let matchingDOB = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for(let j = 0; j < filteredPeople.length; j++)
+        if (declaredAttributesArray[i] == filteredPeople[j].dob){
+            matchingDOB.push(filteredPeople[j])
             
         }
     }
-    console.log(list)
-}
- */
-function searchID(){
-    let idyNum = document.forms["attribute"]["anIDNumber"].value;
-    var table = document.createElement("TABLE");
-    table.border = "1";
-    var row = table.insertRow(-1);
-
-    for (let i = 0; i < people.length; i++){
-       
-        if (people[i].id == idyNum){
-            var cell = row.insertCell(-1)
-
-            cell.innerHTML = people[i].id + " " + people[i].firstName+" "+people[i].lastName+" "+people[i].gender+" "+people[i].dob+" "+people[i].height+" "+people[i].weight+" "+people[i].eyeColor+" "+people[i].occupation+" "+people[i].parents+" "+people[i].currentSpouse
-
-
-        }
-
+    if (matchingDOB.length < 1){
+        return filteredPeople;
     }
-        var idTable = document.getElementById("idTable");
-        idTable.innerHTML = "";
-        idTable.appendChild(table);
+    else return matchingDOB;
+
 }
 
-// Search by ID END---
+function searchByHeight(declaredAttributesArray){
+    let matchingHeight = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for(let j = 0; j < filteredPeople.length; j++)
+        if (declaredAttributesArray[i] == filteredPeople[j].height){
+            matchingHeight.push(filteredPeople[j])
+            
+        }
+    }
+    if (matchingHeight.length < 1){
+        return filteredPeople;
+    }
+    else return matchingHeight;
+
+}
+
+function searchByWeight(declaredAttributesArray){
+    let matchingWeight = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for(let j = 0; j < filteredPeople.length; j++)
+        if (declaredAttributesArray[i] == filteredPeople[j].weight){
+            matchingWeight.push(filteredPeople[j])
+            
+        }
+    }
+    if (matchingWeight.length < 1){
+        return filteredPeople;
+    }
+    else return matchingWeight;
+
+}
+
+function searchByID(declaredAttributesArray){
+    let matchingID = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+
+        for(let j = 0; j < filteredPeople.length; j++){
+            if (declaredAttributesArray[i] == filteredPeople[j].id){
+                matchingID.push(filteredPeople[j])
+            }
+        }
+    }
+    if (matchingID < 1){
+        return filteredPeople;
+    }
+    else return matchingID;
+}
+
+
+
+
+let declaredAttributesArray = declareAttributes(input);
+filteredPeople = searchByGender(declaredAttributesArray);
+filteredPeople = searchEyeColors(declaredAttributesArray);
+filteredPeople = searchByOccupation(declaredAttributesArray);
+filteredPeople = searchByDOB(declaredAttributesArray);
+filteredPeople = searchByHeight(declaredAttributesArray);
+filteredPeople = searchByWeight(declaredAttributesArray);
+filteredPeople = searchByID(declaredAttributesArray);
+console.log(filteredPeople)
+if (filteredPeople.length == 1){
+    spamFillTable(filteredPeople)
+}else GenerateTable();
+
 
 
 
