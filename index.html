@@ -15,6 +15,13 @@
         <input type="button" onclick="getElements()" enter="submit" value="Submit">
     </form> 
 
+    <form id="keyWordForm">
+      <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES</label><br>
+      <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
+      <input type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">
+     
+  </form> 
+
 
     <!--ALERT USER IF THEY INPUT UNKNOWN NAM BELOW-->
     <div class="alert alert-secondary" role="alert" id="alertUnknown">
@@ -23,48 +30,17 @@
     <!--ALERT USER IF THEY INPUT AND FOUND SOMEONE ABOVE-->
     
      <!--Search user by First and Last name and put all thier information into a Table--> 
-    <table id="theTable">
-      <tr>
-        <th>id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Gender</th>
-        <th>DOB</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Eye Color</th>
-        <th>Ocupation</th>
-        <th>Parents</th>
-        <th>Current Spouse</th>
-      </tr>
-      <tr>
-        <td id="id">1234567</td>
-        <td id="firstName">Ricky</td>
-        <td id="lastName">Bobby</td>
-        <td id="gender">Male</td>
-        <td id="dob">9/4/55</td>
-        <td id="height">65</td>
-        <td id="weight">162</td>
-        <td id="eyeColor">Brown</td>
-        <td id="occupation">Racecar Driver</td>
-        <td id="parents">No Parents</td>
-        <td id="currentSpouse">Single</td>
-      </tr> 
-    </table>
-    <!--END-->
- 
+   
+    <table id="myTable"></table>
+
+
     <!-- self generating table to list EVERY PERSON IN RECORD ~below~-->
     <input type="button" value="Generate Table" onclick="GenerateTable()" />
     <hr />
     <div id="dvTable"></div>
     <!--END-->
 
-    <form id="keyWordForm">
-      <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES</label><br>
-      <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
-      <input type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">
-     
-  </form> 
+
 
   
 

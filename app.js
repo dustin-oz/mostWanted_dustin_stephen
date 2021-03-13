@@ -1,8 +1,5 @@
 'use strict';
 
-
-
-
 function searchByName(){
     let firstNameInput = document.forms['nameForm']['fname'].value;
     let lastNameInput = document.forms['nameForm']['lname'].value;
@@ -27,6 +24,30 @@ function searchByName(){
     
     }
 }
+
+// Generates table and fills with data from const people
+function hafniumTable(data){
+    var table = document.getElementById('myTable');
+    for (var i=0; i < data.length; i++) {
+        var row = `     <tr> 
+                        <td>${data[i].id}</td>
+                        <td>${data[i].firstName}</td>
+                        <td>${data[i].lastName}</td>
+                        <td>${data[i].gender}</td>
+                        <td>${data[i].dob}</td>
+                        <td>${data[i].height}</td>
+                        <td>${data[i].weight}</td>
+                        <td>${data[i].eyeColor}</td>
+                        <td>${data[i].occupation}</td>
+                        <td>${data[i].parents}</td>
+                        <td>${data[i].currentSpouse}</td>
+                </tr>`;
+            table.innerHTML += row;
+    }
+}
+
+hafniumTable(people);
+// End generate table
 
 
 
@@ -57,7 +78,7 @@ function searchByKeyWord(){
     }
    
     else if (filteredPeople.length > 1){
-        GenerateTable(filteredPeople)
+        hafniumTable(filteredPeople)
 
     }
     else spamFillTable(filteredPeople)
@@ -252,7 +273,7 @@ function searchByLastName(declaredAttributesArray, filteredPeople){
 }
 
 
-    function GenerateTable(filteredPeople) {
+    /* function GenerateTable(filteredPeople) {
         //Build an array containing Customer records.
         //Create a HTML Table element.
         var table = document.createElement("TABLE");
@@ -277,14 +298,13 @@ function searchByLastName(declaredAttributesArray, filteredPeople){
         var dvTable = document.getElementById("dvTable");
         dvTable.innerHTML = "";
         dvTable.appendChild(table);
-    }
-
-let infoArray = [];
+    } */
 
 
 
 
-function spamFillTable(filteredPeople){
+
+/* function spamFillTable(filteredPeople){
     document.getElementById("id").innerHTML = filteredPeople[0].id
     document.getElementById("firstName").innerHTML = filteredPeople[0].firstName
     document.getElementById("lastName").innerHTML = filteredPeople[0].lastName
@@ -298,149 +318,9 @@ function spamFillTable(filteredPeople){
     document.getElementById("currentSpouse").innerHTML = filteredPeople[0].currentSpouse
 }
 
-/* for(let i =0; i < people.length; i++) {
-    var elements = people[i].id;
-    console.log(elements);
-} 
- */
-
-/* Working Examples 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].firstName;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].lastName;
-    console.log(elements);
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].gender;
-    console.log(elements);
-      
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].dob;
-    console.log(elements);
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].height;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].weight;
-    console.log(elements);
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].eyeColor;
-    console.log(elements);
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].occupation;
-    console.log(elements);
-    
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].parents;
-    console.log(elements);
-} 
-for(let i =0; i < people.length; i++) {
-    var elements = people[i].currentSpouse;
-    console.log(elements);
-} 
  */
 
 
 
-///  
-//   https://www.aspsnippets.com/Articles/Create-dynamic-Table-in-HTML-at-runtime-using-JavaScript.aspx
 
 
-
-
-
-
-
-/// BRBO.. this was the "searchByOccupation" function I Had.. BEFORE i reduced it, lol... 
-
-/*
- function searchByOccupation(declaredAttributesArray){
-    for (let i = 0; i < declaredAttributesArray.length; i++){
-        if (declaredAttributesArray[i].includes("landscaper")){
-            let landScaper = filteredPeople.filter(function (person){
-                if (person.occupation == "landscaper"){
-                    return true;
-                }
-                else return false;
-            })
-            return (landScaper);
-        }
-        if (declaredAttributesArray[i].includes("assistant")){
-            let assistant = filteredPeople.filter(function (person){
-                if (person.occupation == "assistant"){
-                    return true;
-                }
-                else return false;
-            })
-            return (assistant);
-        }
-        if (declaredAttributesArray[i].includes("programmer")){
-            let programmer = filteredPeople.filter(function (person){
-                if (person.occupation == "programmer"){
-                    return true;
-                }
-                else return false;
-            })
-            return (programmer);
-        }
-        if (declaredAttributesArray[i].includes("nurse")){
-            let nurse = filteredPeople.filter(function (person){
-                if (person.occupation == "nurse"){
-                    return true;
-                }
-                else return false;
-            })
-            return (nurse);
-        }
-        if (declaredAttributesArray[i].includes("student")){
-            let student = filteredPeople.filter(function (person){
-                if (person.occupation == "student"){
-                    return true;
-                }
-                else return false;
-            })
-            return (student);
-        }
-        if (declaredAttributesArray[i].includes("architect")){
-            let architect = filteredPeople.filter(function (person){
-                if (person.occupation == "architect"){
-                    return true;
-                }
-                else return false;
-            })
-            return (architect);
-        }
-        if (declaredAttributesArray[i].includes("doctor")){
-            let doctor = filteredPeople.filter(function (person){
-                if (person.occupation == "doctor"){
-                    return true;
-                }
-                else return false;
-            })
-            return (doctor);
-        }
-        if (declaredAttributesArray[i].includes("politician")){
-            let politician = filteredPeople.filter(function (person){
-                if (person.occupation == "politician"){
-                    return true;
-                }
-                else return false;
-            })
-            return (politician);
-        }
-    
-    }
-   
-} 
-*/

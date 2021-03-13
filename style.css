@@ -18,4 +18,11 @@ table, th, td {
     margin-bottom: 15px;
   }
 
-  
+  table {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  #nameForm, #keyWordForm {
+    border-bottom: 1px solid black;
+  }
