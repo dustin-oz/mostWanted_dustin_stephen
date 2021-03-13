@@ -9,7 +9,7 @@ function searchByName(){
     let lastNameInput = document.forms['nameForm']['lname'].value;
 
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredPeople = people.filter(function (person) {
+    let fPeople = people.filter(function (person) {
         if(person.firstName === firstNameInput && person.lastName === lastNameInput){
             return true;
         }
@@ -19,7 +19,7 @@ function searchByName(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
 
-        spamFillTable(filteredPeople);
+        spamFillTable(fPeople);
         document.getElementById("alertUnknown").innerHTML = "We found..."
     
     }else{
@@ -221,6 +221,9 @@ function searchByOccupation(declaredAttributesArray){
    
 }
 
+/// Dang, I think I just realized I could have done a nested forloop..
+ if(declaredAttributesArray[i].includes(filteredPeople[j].occupation))
+/// will work on that tomorrow...
 
 
 
