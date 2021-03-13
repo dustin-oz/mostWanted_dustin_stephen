@@ -29,15 +29,19 @@ function searchByName(){
     }
 }
 
-let userInput = "Gender male Eye Color brown"
+let userInput = "landScaper Gender male Eye Color brown"
 let hiphipArray = [];
 
 let input = userInput.toLowerCase();
 
+
 function declareAttributes(input){
-   let attributes = input.split(" ")
-   return attributes;
-}
+    let attributes = input.split(" ")
+    return attributes;
+ }
+ 
+
+
 
 
 function declareGender(declaredAttributesArray) {
@@ -46,7 +50,7 @@ function declareGender(declaredAttributesArray) {
         if (declaredAttributesArray[i].includes("male")){
            let yGender = people.filter(function (person){
                if (person.gender == "male"){
-                  // declaredAttributesArray.pop("male");
+                   //declaredAttributesArray.pop("male");
                    return true;
                 }
                 else return false;
@@ -69,10 +73,17 @@ function declareGender(declaredAttributesArray) {
     }
 }
 
+
+
+
+
+
+
+
 function searchEyeColors(declaredAttributesArray){
     for (let i = 0; i < declaredAttributesArray.length; i++){
         if (declaredAttributesArray[i].includes("blue")){
-            let blueEyed = menOrWomen.filter(function (person){
+            let blueEyed = matchingSex.filter(function (person){
                 if(person.eyeColor == "blue"){
                    // declaredAttributesArray.pop("blue");
                     return true;
@@ -84,9 +95,9 @@ function searchEyeColors(declaredAttributesArray){
             
         }
         if(declaredAttributesArray[i].includes("brown")){
-            let brownEyed = menOrWomen.filter(function (person){
+            let brownEyed = matchingSex.filter(function (person){
                 if (person.eyeColor == "brown"){
-                   // declaredAttributesArray.pop("brown");
+                    // declaredAttributesArray.pop("brown");
                     return true;
                 }
                 else return false;
@@ -94,7 +105,7 @@ function searchEyeColors(declaredAttributesArray){
             return (brownEyed);
         }
         if(declaredAttributesArray[i].includes("hazel")){
-            let hazelEyed = menOrWomen.filter(function (person){
+            let hazelEyed = matchingSex.filter(function (person){
                 if (person.eyeColor == "hazel"){
                    //declaredAttributesArray.pop("hazel");
                     return true;
@@ -104,7 +115,7 @@ function searchEyeColors(declaredAttributesArray){
             return (hazelEyed);
         }
         if(declaredAttributesArray[i].includes("black")){
-            let blackEyed = menOrWomen.filter(function (person){
+            let blackEyed = matchingSex.filter(function (person){
                 if (person.eyeColor == "black"){
                     //declaredAttributesArray.pop("black");
                     return true;
@@ -114,7 +125,7 @@ function searchEyeColors(declaredAttributesArray){
             return (blackEyed);
         }
         if(declaredAttributesArray[i].includes("green")){
-            let greenEyed = menOrWomen.filter(function (person){
+            let greenEyed = matchingSex.filter(function (person){
                 if (person.eyeColor == "green"){
                     //declaredAttributesArray.pop("green");
                     return true;
@@ -129,13 +140,96 @@ function searchEyeColors(declaredAttributesArray){
 
 }
 
+function searchByOccupation(declaredAttributesArray){
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+        if (declaredAttributesArray[i].includes("landscaper")){
+            let landScaper = matchingEyes.filter(function (person){
+                if (person.occupation == "landscaper"){
+                    return true;
+                }
+                else return false;
+
+            })
+            return (landScaper);
+        }
+        if (declaredAttributesArray[i].includes("assistant")){
+            let assistant = matchingEyes.filter(function (person){
+                if (person.occupation == "assistant"){
+                    return true;
+                }
+                else return false;
+            })
+            return (assistant);
+        }
+        if (declaredAttributesArray[i].includes("programmer")){
+            let programmer = matchingEyes.filter(function (person){
+                if (person.occupation == "programmer"){
+                    return true;
+                }
+                else return false;
+            })
+            return (programmer);
+        }
+        if (declaredAttributesArray[i].includes("nurse")){
+            let nurse = matchingEyes.filter(function (person){
+                if (person.occupation == "nurse"){
+                    return true;
+                }
+                else return false;
+            })
+            return (nurse);
+        }
+        if (declaredAttributesArray[i].includes("student")){
+            let student = matchingEyes.filter(function (person){
+                if (person.occupation == "student"){
+                    return true;
+                }
+                else return false;
+            })
+            return (student);
+        }
+        if (declaredAttributesArray[i].includes("architect")){
+            let architect = matchingEyes.filter(function (person){
+                if (person.occupation == "architect"){
+                    return true;
+                }
+                else return false;
+            })
+            return (architect);
+        }
+        if (declaredAttributesArray[i].includes("doctor")){
+            let doctor = matchingEyes.filter(function (person){
+                if (person.occupation == "doctor"){
+                    return true;
+                }
+                else return false;
+            })
+            return (doctor);
+        }
+        if (declaredAttributesArray[i].includes("politician")){
+            let politician = matchingEyes.filter(function (person){
+                if (person.occupation == "politician"){
+                    return true;
+                }
+                else return false;
+            })
+            return (politician);
+        }
+    
+
+    }
+   
+}
+
 
 
 
 let declaredAttributesArray = declareAttributes(input);
-const menOrWomen = declareGender(declaredAttributesArray);
-const matchingEyes = searchEyeColors(declaredAttributesArray);
-console.log(matchingEyes)
+let matchingSex = declareGender(declaredAttributesArray);
+let matchingEyes = searchEyeColors(declaredAttributesArray);
+let matchingJob = searchByOccupation(declaredAttributesArray);
+console.log(matchingJob)
+
 
    
 
