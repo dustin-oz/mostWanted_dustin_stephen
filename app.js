@@ -50,8 +50,14 @@ function searchByKeyWord(){
     filteredPeople = searchByFirstName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByLastName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByID(declaredAttributesArray, filteredPeople);
+    if (filteredPeople.length == 22){
+        
+        alert("No match")
+        spamFillTable(filteredPeople)
+        
+    }
    
-    if (filteredPeople.length > 1){
+    else if (filteredPeople.length > 1){
         GenerateTable(filteredPeople)
 
     }
@@ -63,7 +69,7 @@ function searchByKeyWord(){
         let parentArray = [];
         for (let i = 0; i < declaredAttributesArray.length; i++){
             
-            for(let j = 17; j < filteredPeople.length; j++){
+            for(let j = 0; j < filteredPeople.length; j++){
                 if(declaredAttributesArray[i] == filteredPeople[j].parents[0] || declaredAttributesArray[i] == filteredPeople[j].parents[1]){
                 
 
@@ -295,10 +301,11 @@ if (filteredPeople.length == 1){
   
         //Add the data rows.
         for (var i = 0; i < filteredPeople.length; i++) {
+          
             //row = table.insertRow(-1);
             for (var j = 0; j < columnCount; j++) {
                 var cell = row.insertCell(-1);
-                cell.innerHTML = filteredPeople[i].id + " " + filteredPeople[i].firstName+" "+filteredPeople[i].lastName+" "+filteredPeople[i].gender+" "+filteredPeople[i].dob+" "+filteredPeople[i].height+" "+filteredPeople[i].weight+" "+filteredPeople[i].eyeColor+" "+filteredPeople[i].occupation+" "+filteredPeople[i].parents+" "+filteredPeople[i].currentSpouse
+                cell.innerHTML = "ID: "+filteredPeople[i].id + "\n " +"Full Name:\n"+ filteredPeople[i].firstName+" "+filteredPeople[i].lastName+"\n"+"Sex: "+filteredPeople[i].gender+"\n "+"DOB: "+filteredPeople[i].dob+"\n "+"Height: "+filteredPeople[i].height+"\n "+"Weight: "+filteredPeople[i].weight+"\n "+"Eye Color: "+filteredPeople[i].eyeColor+"\n "+"Job: "+filteredPeople[i].occupation+"\n "+"Parents: "+filteredPeople[i].parents[0]+" \n"+filteredPeople[1].parents[1]+"\n"+"Spouse: "+filteredPeople[i].currentSpouse
                
             }
         }
