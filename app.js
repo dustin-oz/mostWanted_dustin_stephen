@@ -42,27 +42,19 @@ function hafniumTable(data){
             table.innerHTML += row;
     }
 }
-function keywordSearchTable(data){
-    var table = document.getElementById('keywordTable');
-    for (var i=0; i < data.length; i++) {
-        var row = `     <tr> 
-                        <td>${data[i].id}</td>
-                        <td>${data[i].firstName}</td>
-                        <td>${data[i].lastName}</td>
-                        <td>${data[i].gender}</td>
-                        <td>${data[i].dob}</td>
-                        <td>${data[i].height}</td>
-                        <td>${data[i].weight}</td>
-                        <td>${data[i].eyeColor}</td>
-                        <td>${data[i].occupation}</td>
-                        <td>${data[i].parents}</td>
-                        <td>${data[i].currentSpouse}</td>
-                </tr>`;
-            table.innerHTML += row;
-    }
-}
+
 //hafniumTable(people);
 // End generate table
+
+document.getElementById("nameForm")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("formButton").click();
+    }
+});
+
+
 
 // Hide Table
 function clearHafniumTable() {
@@ -97,10 +89,10 @@ function searchByKeyWord(){
     }
     
     else if (filteredPeople.length > 1){
-        keywordSearchTable(filteredPeople)
+        hafniumTable(filteredPeople)
         
     }
-    else spamFillTable(filteredPeople)
+    else hafniumTable(filteredPeople)
     
 }
 
