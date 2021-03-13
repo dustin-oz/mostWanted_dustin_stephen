@@ -12,16 +12,19 @@
         <input type="text" id="fname" name="fname" value="Joy"><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname" value="Madden"><br><br>
-        <input type="button" onclick="getElements()" enter="submit" value="Submit">
+        <input class="btn btn-primary" id ="formButton" type="button" onclick="searchByName()" enter="submit" value="Submit">
     </form> 
-
+    <table id="personTable" class="tableClass">
+      
+    </table>
     <form id="keyWordForm">
       <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES</label><br>
       <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
-      <input type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">
+      <input class="btn btn-primary" id ="searchButton" type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">
      
   </form> 
 
+  
 
     <!--ALERT USER IF THEY INPUT UNKNOWN NAM BELOW-->
     <div class="alert alert-secondary" role="alert" id="alertUnknown">
@@ -31,14 +34,12 @@
     
      <!--Search user by First and Last name and put all thier information into a Table--> 
    
-    <table id="myTable"></table>
+    <table id="myTable" class="tableClass">
+      <h1>All People Table</h1>
+    <input class="btn btn-primary" type="button" value="Generate Table" onclick="hafniumTable(people)" />
+    <input class="btn btn-primary" type="button" value="Clear Table" onclick="clearHafniumTable()" />
+    </table>
 
-
-    <!-- self generating table to list EVERY PERSON IN RECORD ~below~-->
-    <input type="button" value="Generate Table" onclick="GenerateTable()" />
-    <hr />
-    <div id="dvTable"></div>
-    <!--END-->
 
 
 

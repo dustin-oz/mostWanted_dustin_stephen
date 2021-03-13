@@ -26,3 +26,10 @@ table, th, td {
   #nameForm, #keyWordForm {
     border-bottom: 1px solid black;
   }
+.btn {
+  margin: 15px;
+}
+
+body {
+  margin: 15px;
+}
