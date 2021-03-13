@@ -46,7 +46,7 @@ function hafniumTable(data){
     }
 }
 
-hafniumTable(people);
+
 // End generate table
 
 
@@ -70,48 +70,67 @@ function searchByKeyWord(){
     filteredPeople = searchByFirstName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByLastName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByID(declaredAttributesArray, filteredPeople);
+    filteredPeople = filtereDuplicates(filteredPeople);
+
     if (filteredPeople.length == 22){
         
         alert("No match")
         spamFillTable(filteredPeople)
         
     }
-   
-    else if (filteredPeople.length > 1){
-        hafniumTable(filteredPeople)
+    else hafniumTable(filteredPeople)
 
-    }
-    else spamFillTable(filteredPeople)
+    
+ 
 
 }
 
-    function accountForParentsID(declaredAttributesArray, filteredPeople){
-        let parentArray = [];
-        for (let i = 0; i < declaredAttributesArray.length; i++){
+
+
+
+
+
+
+
+function accountForParentsID(declaredAttributesArray, filteredPeople){
+    let parentArray = [];
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+        
+        for(let j = 0; j < filteredPeople.length; j++){
+            if(declaredAttributesArray[i] == filteredPeople[j].parents[0] || declaredAttributesArray[i] == filteredPeople[j].parents[1]){
             
-            for(let j = 0; j < filteredPeople.length; j++){
-                if(declaredAttributesArray[i] == filteredPeople[j].parents[0] || declaredAttributesArray[i] == filteredPeople[j].parents[1]){
-                
 
-                    if (filteredPeople[j].parents.length > 1){
-                        parentArray.push(filteredPeople[j].parents[0]);
-                        parentArray.push(filteredPeople[j].parents[1]);
-
-                    }
-                    else parentArray.push(filteredPeople[j].parents[0]);
+                if (filteredPeople[j].parents.length > 1){
+                    parentArray.push(filteredPeople[j].parents[0]);
+                    parentArray.push(filteredPeople[j].parents[1]);
 
                 }
-
+                else parentArray.push(filteredPeople[j].parents[0]);
 
             }
-        
+
+
         }
-        let attributeAddition = declaredAttributesArray.concat(parentArray);
-        return attributeAddition;
-        
     
     }
+    let attributeAddition = declaredAttributesArray.concat(parentArray);
+    return attributeAddition;
+    
 
+}
+
+function filtereDuplicates(filteredPeople){
+    for(let i = 0; i < filteredPeople.length; i++){
+        for(let j = 1; j < filteredPeople.length; j++){
+            if (filteredPeople[i].id === filteredPeople[j].id){
+                filteredPeople.pop(filteredPeople[j]);
+            }
+            
+        }
+        
+    }
+    return filteredPeople;
+}
 
 
 function searchByGender(declaredAttributesArray, filteredPeople) {
