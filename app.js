@@ -83,7 +83,7 @@ function declareGender(declaredAttributesArray) {
 function searchEyeColors(declaredAttributesArray){
     for (let i = 0; i < declaredAttributesArray.length; i++){
         if (declaredAttributesArray[i].includes("blue")){
-            let blueEyed = matchingSex.filter(function (person){
+            let blueEyed = filteredPeople.filter(function (person){
                 if(person.eyeColor == "blue"){
                    // declaredAttributesArray.pop("blue");
                     return true;
@@ -95,7 +95,7 @@ function searchEyeColors(declaredAttributesArray){
             
         }
         if(declaredAttributesArray[i].includes("brown")){
-            let brownEyed = matchingSex.filter(function (person){
+            let brownEyed = filteredPeople.filter(function (person){
                 if (person.eyeColor == "brown"){
                     // declaredAttributesArray.pop("brown");
                     return true;
@@ -105,7 +105,7 @@ function searchEyeColors(declaredAttributesArray){
             return (brownEyed);
         }
         if(declaredAttributesArray[i].includes("hazel")){
-            let hazelEyed = matchingSex.filter(function (person){
+            let hazelEyed = filteredPeople.filter(function (person){
                 if (person.eyeColor == "hazel"){
                    //declaredAttributesArray.pop("hazel");
                     return true;
@@ -115,7 +115,7 @@ function searchEyeColors(declaredAttributesArray){
             return (hazelEyed);
         }
         if(declaredAttributesArray[i].includes("black")){
-            let blackEyed = matchingSex.filter(function (person){
+            let blackEyed = filteredPeople.filter(function (person){
                 if (person.eyeColor == "black"){
                     //declaredAttributesArray.pop("black");
                     return true;
@@ -125,7 +125,7 @@ function searchEyeColors(declaredAttributesArray){
             return (blackEyed);
         }
         if(declaredAttributesArray[i].includes("green")){
-            let greenEyed = matchingSex.filter(function (person){
+            let greenEyed = filteredPeople.filter(function (person){
                 if (person.eyeColor == "green"){
                     //declaredAttributesArray.pop("green");
                     return true;
@@ -143,7 +143,7 @@ function searchEyeColors(declaredAttributesArray){
 function searchByOccupation(declaredAttributesArray){
     for (let i = 0; i < declaredAttributesArray.length; i++){
         if (declaredAttributesArray[i].includes("landscaper")){
-            let landScaper = matchingEyes.filter(function (person){
+            let landScaper = filteredPeople.filter(function (person){
                 if (person.occupation == "landscaper"){
                     return true;
                 }
@@ -153,7 +153,7 @@ function searchByOccupation(declaredAttributesArray){
             return (landScaper);
         }
         if (declaredAttributesArray[i].includes("assistant")){
-            let assistant = matchingEyes.filter(function (person){
+            let assistant = filteredPeople.filter(function (person){
                 if (person.occupation == "assistant"){
                     return true;
                 }
@@ -162,7 +162,7 @@ function searchByOccupation(declaredAttributesArray){
             return (assistant);
         }
         if (declaredAttributesArray[i].includes("programmer")){
-            let programmer = matchingEyes.filter(function (person){
+            let programmer = filteredPeople.filter(function (person){
                 if (person.occupation == "programmer"){
                     return true;
                 }
@@ -171,7 +171,7 @@ function searchByOccupation(declaredAttributesArray){
             return (programmer);
         }
         if (declaredAttributesArray[i].includes("nurse")){
-            let nurse = matchingEyes.filter(function (person){
+            let nurse = filteredPeople.filter(function (person){
                 if (person.occupation == "nurse"){
                     return true;
                 }
@@ -180,7 +180,7 @@ function searchByOccupation(declaredAttributesArray){
             return (nurse);
         }
         if (declaredAttributesArray[i].includes("student")){
-            let student = matchingEyes.filter(function (person){
+            let student = filteredPeople.filter(function (person){
                 if (person.occupation == "student"){
                     return true;
                 }
@@ -189,7 +189,7 @@ function searchByOccupation(declaredAttributesArray){
             return (student);
         }
         if (declaredAttributesArray[i].includes("architect")){
-            let architect = matchingEyes.filter(function (person){
+            let architect = filteredPeople.filter(function (person){
                 if (person.occupation == "architect"){
                     return true;
                 }
@@ -198,7 +198,7 @@ function searchByOccupation(declaredAttributesArray){
             return (architect);
         }
         if (declaredAttributesArray[i].includes("doctor")){
-            let doctor = matchingEyes.filter(function (person){
+            let doctor = filteredPeople.filter(function (person){
                 if (person.occupation == "doctor"){
                     return true;
                 }
@@ -207,7 +207,7 @@ function searchByOccupation(declaredAttributesArray){
             return (doctor);
         }
         if (declaredAttributesArray[i].includes("politician")){
-            let politician = matchingEyes.filter(function (person){
+            let politician = filteredPeople.filter(function (person){
                 if (person.occupation == "politician"){
                     return true;
                 }
@@ -225,12 +225,12 @@ function searchByOccupation(declaredAttributesArray){
 
 
 let declaredAttributesArray = declareAttributes(input);
-let matchingSex = declareGender(declaredAttributesArray);
-let matchingEyes = searchEyeColors(declaredAttributesArray);
-let matchingJob = searchByOccupation(declaredAttributesArray);
-console.log(matchingJob)
-if (matchingJob.length == 1){
-    spamFillTable(matchingJob)
+let filteredPeople = declareGender(declaredAttributesArray);
+filteredPeople = searchEyeColors(declaredAttributesArray);
+filteredPeople = searchByOccupation(declaredAttributesArray);
+console.log(filteredPeople)
+if (filteredPeople.length == 1){
+    spamFillTable(filteredPeople)
 }
 
    
