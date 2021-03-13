@@ -229,7 +229,9 @@ let matchingSex = declareGender(declaredAttributesArray);
 let matchingEyes = searchEyeColors(declaredAttributesArray);
 let matchingJob = searchByOccupation(declaredAttributesArray);
 console.log(matchingJob)
-
+if (matchingJob.length == 1){
+    spamFillTable(matchingJob)
+}
 
    
 
@@ -431,29 +433,7 @@ for(let i =0; i < people.length; i++) {
 
 
 
-/// ATTENTION: Put every function you create, but don't use, but if it's like your baby, because you worked forever on it... but realized it's not what you actually needed.... PUT THAT STUFF BELOW HERE.
-/// ATTENTION:  never used functions below.
+
+/// ATTENTION:  never used functions below. In case you want to save for later or stealing pieces from them.
 
 
-// Search by two criteria
-
-
-let bSearch = "userInput";
-let tSearch = "userInput";
-
-function searchTwo(){
-    for (let i = 0; i < people.length; i++){
-        if (bSearch == people[i].id || bSearch == people[i].firstName || bSearch == people[i].lastName || bSearch == people[i].gender || bSearch == people[i].dob || bSearch == people[i].height || bSearch == people[i].weight || bSearch == people[i].eyeColor || bSearch == people[i].occupation || bSearch == people[i].parents[0] || bSearch == people[i].parents[1] || bSearch == people[i].currentSpouse && (tSearch === people[i].id || tSearch == people[i].firstName || tSearch == people[i].lastName || tSearch == people[i].gender || tSearch == people[i].dob || tSearch == people[i].height || tSearch == people[i].weight || tSearch == people[i].eyeColor || tSearch == people[i].occupation || tSearch == people[i].parents[0] || tSearch == people[i].parents[1] || tSearch == people[i].currentSpouse )){
-         
-                
-                
-          console.log(" ID: "+ people[i].id + "\n " +"First Name: "+ people[i].firstName+"\n "+"Last Name: "+people[i].lastName+"\n "+"Gender: "+people[i].gender+"\n "+"DOB: "+people[i].dob+"\n "+"Height: "+people[i].height+"\n "+"Weight: "+people[i].weight+"\n "+"Eye Color: "+people[i].eyeColor+"\n "+"Occupation: "+people[i].occupation+"\n "+"Parents: "+people[i].parents[0]+", "+people[i].parents[1]+"\n Spouse: "+people[i].currentSpouse);
-
-        }
-        else{
-            console.log("No Match")
-        }
-
-    }
-
-}
