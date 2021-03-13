@@ -14,25 +14,12 @@
         <input type="text" id="lname" name="lname" value="Madden"><br><br>
         <input class="btn btn-primary" id ="formButton" type="button" onclick="searchByName()" enter="submit" value="Submit">
     </form> 
-    <table id="personTable" class="tableClass">
-      
-    </table>
+
     <form id="keyWordForm">
-      <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES</label><br>
-      <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
-      <input class="btn btn-primary" id ="searchButton" type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">
-     
-  </form> 
-
-  
-
-    <!--ALERT USER IF THEY INPUT UNKNOWN NAM BELOW-->
-    <div class="alert alert-secondary" role="alert" id="alertUnknown">
-      Search for someone by their name.
-    </div>
-    <!--ALERT USER IF THEY INPUT AND FOUND SOMEONE ABOVE-->
-    
-     <!--Search user by First and Last name and put all thier information into a Table--> 
+          <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES</label><br>
+          <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
+          <input class="btn btn-primary" id ="searchButton" type="button" onclick="searchByKeyWord()" enter="submit" value="Submit">     
+    </form> 
    
     <table id="myTable" class="tableClass">
       <h1>All People Table</h1>
@@ -42,14 +29,9 @@
 
 
 
-
-  
-
-    <!--I put bootstrap js source code above our own source code, I think that is proper order.-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
 
-<!--yea-->

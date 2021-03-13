@@ -43,7 +43,6 @@ function hafniumTable(data){
     }
 }
 //hafniumTable(people);
-
 // End generate table
 
 // Hide Table
