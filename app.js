@@ -22,6 +22,8 @@ function searchByName(){
 } 
 
 
+
+
 // Generates table and fills with data from const people
 function hafniumTable(data){
     var table = document.getElementById('myTable');
@@ -63,15 +65,10 @@ function clearHafniumTable() {
 
 //Search By Key Word Inputs
 function searchByKeyWord(){
-
     let userInput = document.forms["keyWordForm"]["keyWords"].value  
-    
-    
     let filteredPeople = people;
     let declaredAttributesArray = userInput.split(" ");
-    
 
-    declaredAttributesArray = accountForParentsID(declaredAttributesArray, filteredPeople)
     filteredPeople = searchByGender(declaredAttributesArray, filteredPeople);
     filteredPeople = searchEyeColors(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByOccupation(declaredAttributesArray, filteredPeople);
@@ -81,63 +78,119 @@ function searchByKeyWord(){
     filteredPeople = searchByFirstName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByLastName(declaredAttributesArray, filteredPeople);
     filteredPeople = searchByID(declaredAttributesArray, filteredPeople);
+    filteredPeople = findRelatives(declaredAttributesArray, filteredPeople);
+    filteredPeople = filterDuplicates(filteredPeople);
     if (filteredPeople.length == 22){
-        
-        alert("No match")
-        spamFillTable(filteredPeople)
-        
+        alert("No match")   
     }
     
-    else if (filteredPeople.length > 1){
-        hafniumTable(filteredPeople)
-        
+    else if (filteredPeople.length > 1){ 
+        hafniumTable(filteredPeople)   
     }
     else hafniumTable(filteredPeople)
+
+}
+
+
+
+
+function findRelatives(declaredAttributesArray, filteredPeople){
     
-}
-
-function spamFillTable(filteredPeople){
-    document.getElementById("id").innerHTML = filteredPeople[0].id
-    document.getElementById("firstName").innerHTML = filteredPeople[0].firstName
-    document.getElementById("lastName").innerHTML = filteredPeople[0].lastName
-    document.getElementById("gender").innerHTML = filteredPeople[0].gender
-    document.getElementById("dob").innerHTML = filteredPeople[0].dob
-    document.getElementById("height").innerHTML = filteredPeople[0].height
-    document.getElementById("weight").innerHTML = filteredPeople[0].weight
-    document.getElementById("eyeColor").innerHTML = filteredPeople[0].eyeColor
-    document.getElementById("occupation").innerHTML = filteredPeople[0].occupation
-    document.getElementById("parents").innerHTML = filteredPeople[0].parents
-    document.getElementById("currentSpouse").innerHTML = filteredPeople[0].currentSpouse
-}
-
-
-    function accountForParentsID(declaredAttributesArray, filteredPeople){
-        let parentArray = [];
-        for (let i = 0; i < declaredAttributesArray.length; i++){
-            
-            for(let j = 0; j < filteredPeople.length; j++){
-                if(declaredAttributesArray[i] == filteredPeople[j].parents[0] || declaredAttributesArray[i] == filteredPeople[j].parents[1]){
-                
-
-                    if (filteredPeople[j].parents.length > 1){
-                        parentArray.push(filteredPeople[j].parents[0]);
-                        parentArray.push(filteredPeople[j].parents[1]);
-
-                    }
-                    else parentArray.push(filteredPeople[j].parents[0]);
-
-                }
-
-
-            }
-        
+    for (let i = 0; i < declaredAttributesArray.length; i++){
+        if (declaredAttributesArray[i].includes("parents")){
+            filteredPeople = matchChildToParents(filteredPeople);
         }
-        let attributeAddition = declaredAttributesArray.concat(parentArray);
-        return attributeAddition;
+        //there are no sibling tags, so you have to search parents first to find matching children.
+        if (declaredAttributesArray[i].includes("brothers") || declaredAttributesArray[i].includes("sisters") || declaredAttributesArray[i].includes("siblings")){
+            filteredPeople = matchChildToParents(filteredPeople);
+            filteredPeople = findSiblings(filteredPeople);
+        }
+        if (declaredAttributesArray[i].includes("spouse") || declaredAttributesArray[i].includes("wife") || declaredAttributesArray[i].includes("husband")){
+            filteredPeople = findSpouse(filteredPeople);
+        }
+        if (declaredAttributesArray[i].includes("family") || declaredAttributesArray[i].includes("relatives")) {
+            filteredPeople = findSpouse(filteredPeople);
+            filteredPeople = matchChildToParents(filteredPeople);
+            filteredPeople = findSiblings(filteredPeople);
+        }
+        
+
+    }
+    return filteredPeople;
+
+
+} 
+
+function findSpouse(filteredPeople) {
+    let family = [];
+    let bastards = [];
+    for(let j = 0; j < filteredPeople.length; j++) {
+        for (let i = 10; i < people.length; i++){
+           
+            if (filteredPeople[j].currentSpouse == people[i].id){
+                console.log(people[i].parents[0]);
+                family.push(people[i]);
+            }
+            else bastards.push[people[i]]
+      
+        }
+
+    }
+    return family.concat(filteredPeople);
         
     
-    }
 
+}
+
+
+function findSiblings(filteredPeople) {
+    let family = [];
+    let bastards = [];
+    for(let j = 0; j < filteredPeople.length; j++) {
+        for (let i = 0; i < people.length; i++){
+           
+            if (filteredPeople[j].id == people[i].parents[0]){
+                console.log(people[i].parents[0]);
+                family.push(people[i]);
+            }
+            if (filteredPeople[j].id == people[i].parents[1]){
+                console.log(people[i])
+                family.push(people[i])
+            }
+            else bastards.push[people[i]]
+        }
+    }
+    return family.concat(filteredPeople);       
+}
+
+
+
+
+function matchChildToParents(filteredPeople) {
+    let family = [];
+    let bastards = [];
+    for(let j = 0; j < filteredPeople.length; j++) {
+        for (let i = 0; i < people.length; i++){
+           
+            if (filteredPeople[j].parents[0] == people[i].id){
+                console.log(people[i].parents[0]);
+                family.push(people[i]);
+            }
+            if (filteredPeople[j].parents[1] == people[i].id){
+                console.log(people[i])
+                family.push(people[i])
+            }
+            else bastards.push[people[i]]
+        }
+    }
+    return family.concat(filteredPeople);      
+}
+
+
+function filterDuplicates(filteredPeople){
+    let removedDupes = [...new Set(filteredPeople)];
+    return removedDupes;
+}
 
 
 function searchByGender(declaredAttributesArray, filteredPeople) {
@@ -153,9 +206,7 @@ function searchByGender(declaredAttributesArray, filteredPeople) {
     if (matchingGender.length < 1){
         return filteredPeople;
     }
-    else return matchingGender;
-    
-        
+    else return matchingGender;     
 }
 
 function searchEyeColors(declaredAttributesArray, filteredPeople){
@@ -183,15 +234,14 @@ function searchByOccupation(declaredAttributesArray, filteredPeople){
         for (let j = 0; j < filteredPeople.length; j++)
         if (declaredAttributesArray[i] == filteredPeople[j].occupation){
             matchingJobs.push(filteredPeople[j]); 
-
         }
     }   
-    if (matchingJobs.length < 1){
-        return filteredPeople;
+    if (matchingJobs.length > 1){
+        return matchingJobs;
     }
-    else return matchingJobs;
-        
+    else return filteredPeople;       
 }   
+
 
 function searchByDOB(declaredAttributesArray, filteredPeople){
     let matchingDOB = [];
@@ -199,15 +249,13 @@ function searchByDOB(declaredAttributesArray, filteredPeople){
 
         for(let j = 0; j < filteredPeople.length; j++)
         if (declaredAttributesArray[i] == filteredPeople[j].dob){
-            matchingDOB.push(filteredPeople[j])
-            
+            matchingDOB.push(filteredPeople[j])   
         }
     }
     if (matchingDOB.length < 1){
         return filteredPeople;
     }
     else return matchingDOB;
-
 }
 
 function searchByHeight(declaredAttributesArray, filteredPeople){
@@ -216,8 +264,7 @@ function searchByHeight(declaredAttributesArray, filteredPeople){
 
         for(let j = 0; j < filteredPeople.length; j++)
         if (declaredAttributesArray[i] == filteredPeople[j].height){
-            matchingHeight.push(filteredPeople[j])
-            
+            matchingHeight.push(filteredPeople[j])    
         }
     }
     if (matchingHeight.length < 1){
@@ -254,7 +301,7 @@ function searchByID(declaredAttributesArray, filteredPeople){
             }
         }
     }
-    if (matchingID < 1){
+    if (matchingID.length < 1){
         return filteredPeople;
     }
     else return matchingID;
@@ -300,8 +347,3 @@ function searchByLastName(declaredAttributesArray, filteredPeople){
 
 
     
-
-
-
-
-
