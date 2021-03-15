@@ -34,6 +34,7 @@
       </div>
     </nav>
   </header>
+
   <div id="nameForm" class="nameFormSection sections">
     <div class="nameFormTitle">
       <h1>Locate A Person</h1>
@@ -46,8 +47,9 @@
       <input type="text" id="lname" name="lname" value="Madden"><br><br>
       <input class="btn btn-primary" id="formButton" type="button" onclick="searchByName()" enter="submit"
         value="Submit">
-      <p class="form-control error"></p>
-      <p class="form-control success"></p>
+      <!-- The following to <p> appear to be unused. Commenting out to resolve front end view issue. Will uncomment or delete once it is verified that this is not a precursor to some follow-on code -->
+      <!-- <p class="form-control error"></p>
+      <p class="form-control success"></p> -->
     </form>
   </div>
 
@@ -85,7 +87,6 @@
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
   <script src="data.js"></script>
-  <script src="auth.js"></script>
   <script src="app.js"></script>
 
 </body>
