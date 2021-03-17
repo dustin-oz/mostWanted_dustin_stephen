@@ -66,9 +66,9 @@ function hafniumTable(data){
 
 
 // Hide Table
-function clearHafniumTable() {
-    document.getElementById('myTable').style.visibility = "hidden";
-}
+// function clearHafniumTable() {
+//     document.getElementById('myTable').style.visibility = "hidden";
+// }
 
 //Search By Key Word Inputs
 function searchByKeyWord(){
@@ -446,7 +446,7 @@ function searchByFirstName(declaredAttributesArray, filteredPeople){
             else filteredPeople[j].firstName[0].toUpperCase();
         }
     }
-    if (matchingFName < 1){
+    if (matchingFName.length < 1){
         return filteredPeople;
     }
     else return matchingFName;
@@ -465,7 +465,7 @@ function searchByLastName(declaredAttributesArray, filteredPeople){
             else filteredPeople[j].firstName[0].toUpperCase();
         }
     }
-    if (matchingLName < 1){
+    if (matchingLName.length < 1){
         return filteredPeople;
     }
     else return matchingLName;
