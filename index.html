@@ -13,11 +13,11 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">Fixed navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#nameForm">Person Locator</a>
@@ -31,11 +31,11 @@
 
         </ul>
 
-      </div>
+      </div> -->
     </nav>
   </header>
 
-  <div id="nameForm" class="nameFormSection sections">
+ <!--  <div id="nameForm" class="nameFormSection sections">
     <div class="nameFormTitle">
       <h1>Locate A Person</h1>
       <h4>By entering a First & Last name</h4>
@@ -47,31 +47,29 @@
       <input type="text" id="lname" name="lname" value="Madden"><br><br>
       <input class="btn btn-primary" id="formButton" type="button" onclick="searchByName()" enter="submit"
         value="Submit">
-      <!-- The following to <p> appear to be unused. Commenting out to resolve front end view issue. Will uncomment or delete once it is verified that this is not a precursor to some follow-on code -->
-      <!-- <p class="form-control error"></p>
-      <p class="form-control success"></p> -->
     </form>
-  </div>
+  </div> -->
 
   <div id="keySection" class="keywordSearchSection sections">
     <section class="keywordContainer">
       <div class="keywordFormTitleContainer">
-        <h1>Advanced Keyword Search</h1>
+        <h1>Keyword Search</h1>
         <h4>Find one or many people by searching for unique characteristics</h4>
       </div>
       <form id="keyWordForm">
         <label for="keyWords">Search by keywords DO NOT USE COMMAS OR COLONS ONLY SPACES. Except for birthdays you can
-          use mm/dd/yyyy format. Try things like "brown eyed female assistant" or "brown eyes" or "firstName family" "firstName parents"</label><br>
+          use mm/dd/yyyy format.</label><br>
         <input type="text" id="keyWords" name="keyWords" value="Only button submits"><br><br>
         <input class="btn btn-primary" id="searchButton" type="button" onclick="searchByKeyWord()" enter="submit"
           value="Submit">
+      <input class="btn btn-primary" type="button" value="Generate Table" onclick="hafniumTable(people)" />
       </form>
-      <table id="keywordTable">
+      <table id="myTable">
       </table>
     </section>
   </div>
 
-  <div id="allSection" class="allPeopleSection sections">
+<!--   <div id="allSection" class="allPeopleSection sections">
     <table id="myTable" class="tableClass">
       <div class="allPeopleTableTitle">
         <h1>Generate Complete Table</h1>
@@ -81,7 +79,7 @@
       <input class="btn btn-primary" type="button" value="Clear Table" onclick="clearHafniumTable()" />
     </table>
   </div>
-
+ -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
